@@ -16,9 +16,44 @@ import SeachPage from './SeachPage';
 import TabView from './TabView';
 import WebView from './WebView';
 import ProductList from './ProductList';
-
+import Swiper from './Swiper';
+import Animated from './Animated_list';
+import Animated1 from './Animated1'
+import Animated2 from './Animated2'
+import Animated3 from './Animated3'
 
 class AwesomeProject2 extends Component {
+
+	//构造
+  	constructor(props)
+  	{
+      	super(props);
+  	}
+
+  	//返回首页
+	return_index = (title, navigator, item) => {
+		return (
+			<View style={styles.flex}>
+				<TopTitle  title={title} onPress={() => navigator.push({title:'首页',id:'main'})} />
+				<View style={styles.flex}>
+					{item}
+				</View>
+			</View>
+		);
+	};
+
+	//返回动画列表
+	return_animated_list = (title, navigator, item) => {
+		return (
+			<View style={styles.flex}>
+				<TopTitle  title={'Animated动画 - ' + title} onPress={() => navigator.push({title:'Animated动画',id:'Animated'})} />
+				<View style={styles.flex}>
+					{item}
+				</View>
+			</View>
+		);
+	};
+
 
 	rendNavigator = (route, navigator) => {
 		switch(route.id){
@@ -34,70 +69,51 @@ class AwesomeProject2 extends Component {
 							<Button text="省份列表" onPress={() => navigator.push({title:'省份列表',id:'AreaList'})} />
 							<Button text="搜索页面" onPress={() => navigator.push({title:'搜索页面',id:'SeachPage'})} />
 							<Button text="TabBarView" onPress={() => navigator.push({title:'scrollable-tab-view测试',id:'TabView'})} />
-						  <Button text="WebView" onPress={() => navigator.push({title:'WebView页面',id:'WebView'})} />
-			        <Button text="商品列表" onPress={() => navigator.push({title:'商品列表',id:'ProductList'})} />
-            </View>
-			      <Text>------------------------</Text>
+						  	<Button text="WebView" onPress={() => navigator.push({title:'WebView页面',id:'WebView'})} />
+					        <Button text="商品列表" onPress={() => navigator.push({title:'商品列表',id:'ProductList'})} />
+					        <Button text="图片轮播" onPress={() => navigator.push({title:'图片轮播',id:'Swiper'})} />
+					        <Button text="Animated动画" onPress={() => navigator.push({title:'Animated动画',id:'Animated'})} />
+		            	</View>
 					</View>
 				);
 				break;
 
 			case 'StateChange' : 
-				return (
-					<View style={styles.flex}>
-						<TopTitle  title={route.title} onPress={() => navigator.push({title:'首页',id:'main'})} />
-						<View style={styles.flex}>
-							<StateChange />
-						</View>
-					</View>
-				);
+				return (this.return_index(route.title, navigator, <StateChange />));
 				break;
 			case 'AreaList' : 
-				return (
-					<View style={styles.flex}>
-						<TopTitle  title={route.title} onPress={() => navigator.push({title:'首页',id:'main'})} />
-						<View style={styles.flex}>
-							<AreaList />
-						</View>
-					</View>
-				);
+				return (this.return_index(route.title, navigator, <AreaList />));
 				break;
 			case 'SeachPage' : 
-				return (
-					<View style={styles.flex}>
-						<TopTitle  title={route.title} onPress={() => navigator.push({title:'首页',id:'main'})} />
-						<View style={styles.flex}>
-							<SeachPage />
-						</View>
-					</View>
-				);
+				return (this.return_index(route.title, navigator, <SeachPage />));
+				break;
 			case 'TabView' : 
-				return (
-					<View style={styles.flex}>
-						<TopTitle  title={route.title} onPress={() => navigator.push({title:'首页',id:'main'})} />
-						<View style={styles.flex}>
-							<TabView />
-						</View>
-					</View>
-				);
-      case 'WebView' : 
-        return (
-          <View style={styles.flex}>
-            <TopTitle  title={route.title} onPress={() => navigator.push({title:'首页',id:'main'})} />
-            <View style={styles.flex}>
-              <WebView />
-            </View>
-          </View>
-        );
-      case 'ProductList' : 
-        return (
-          <View style={styles.flex}>
-            <TopTitle  title={route.title} onPress={() => navigator.push({title:'首页',id:'main'})} />
-            <View style={styles.flex}>
-              <ProductList />
-            </View>
-          </View>
-        );
+				return (this.return_index(route.title, navigator, <TabView />));
+				break;
+		    case 'WebView' : 
+		        return (this.return_index(route.title, navigator, <WebView />));
+		        break;
+		    case 'ProductList' : 
+		        return (this.return_index(route.title, navigator, <ProductList />));
+		        break;
+		    case 'Swiper' :
+		        return (this.return_index(route.title, navigator, <Swiper />));
+		        break;
+		    case 'Animated' :
+		        return (this.return_index(route.title, navigator, <Animated route={route} navigator={navigator} />));
+		        break;
+		    case 'Animated1' :
+		        return (this.return_animated_list(route.title, navigator, <Animated1 />));
+		        break;
+		    case 'Animated2' :
+		        return (this.return_animated_list(route.title, navigator, <Animated2 />));
+		        break;
+		    case 'Animated3' :
+		        return (this.return_animated_list(route.title, navigator, <Animated3 />));
+		        break;
+	        case 'Animated4' :
+		        return (this.return_animated_list(route.title, navigator, <Animated4 />));
+		        break;
 			default : 
 				return false;
 		}
