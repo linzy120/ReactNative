@@ -64,7 +64,7 @@ export default class ReactSwiper extends Component {
 				    //activeDot={<View style={{backgroundColor: '#007aff', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />}
 				    autoplay={true}
 				    autoplayTimeout={2}
-				    showsButtons={true}>
+				    showsButtons={false}>
 			        <View style={styles.slide1}>
 			          	<Text style={styles.text}>Hello Swiper</Text>
 			        </View>

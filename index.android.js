@@ -21,6 +21,7 @@ import Animated from './Animated_list';
 import Animated1 from './Animated1'
 import Animated2 from './Animated2'
 import Animated3 from './Animated3'
+import Animated4 from './Animated4'
 
 class AwesomeProject2 extends Component {
 

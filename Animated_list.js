@@ -26,6 +26,7 @@ export default class Animated_list extends Component {
 						<Button text="动画1" onPress={() => navigator.push({title:'动画1',id:'Animated1'})} />
 						<Button text="动画2" onPress={() => navigator.push({title:'动画2',id:'Animated2'})} />
 						<Button text="动画3" onPress={() => navigator.push({title:'动画3',id:'Animated3'})} />
+						<Button text="动画4" onPress={() => navigator.push({title:'动画4',id:'Animated4'})} />
 	            	</View>
 				);
 				break;

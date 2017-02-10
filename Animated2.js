@@ -26,7 +26,8 @@ export default class Animated2 extends React.Component {
       } >
       <Text style = {
         styles.text
-      } > 悄悄的， 我出现了 </Text> </Animated.View >
+      } > 悄悄的， 我出现了 </Text>
+      </Animated.View >
     );
   }
   componentDidMount() {
